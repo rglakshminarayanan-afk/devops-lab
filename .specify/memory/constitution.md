@@ -1,50 +1,64 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 0.0.0 -> 1.0.0
+- Modified principles: none (initial populated constitution)
+- Added sections: Technology Standards; Development Workflow
+- Removed sections: none
+- Follow-up TODOs: Ratification date is unknown and remains TODO
+-->
+# DevOps Lab Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. User Value and Clarity
+Every change MUST solve a stated repository or user need with behavior that is understandable and
+maintainable. Interfaces and implementation decisions MUST favor clear, direct outcomes over
+unnecessary abstractions or speculative functionality.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Test-Driven Verification
+Behavior changes MUST have focused automated coverage, preferably written before implementation.
+Tests MUST cover the changed behavior and its relevant edge cases. Existing test, lint, type-check,
+and build commands MUST pass before a change is considered complete.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Type Safety and Consistency
+Application code MUST use the project's TypeScript and React conventions, preserve type safety,
+and reuse established modules and patterns where practical. Untyped escape hatches MUST be avoided
+unless a concrete external boundary requires them and the boundary is clearly documented.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Integration and Regressions
+Changes MUST preserve existing application behavior and MUST be validated through the smallest
+command that exercises the affected surface. Cross-component or build-level changes require
+integration verification in addition to focused tests.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Small, Reviewable Changes
+Implementation MUST remain scoped to the requested outcome and avoid unrelated refactoring.
+Source changes MUST be surgical, documented where behavior is not obvious, and reviewable with
+appropriate test and build evidence.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technology Standards
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+The project MUST use React, TypeScript, Vite, ESLint, and Vitest as defined by package manifests and
+configuration. Dependencies MUST be added only when a manifest change or missing tool is required
+by the requested work. Generated build output MUST remain outside source control unless repository
+policy explicitly requires otherwise.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Work MUST begin with the relevant repository context and preserve existing behavior. Changes to
+application code MUST be validated with focused tests, linting or type-checking, and build
+verification when affected. Pull requests or commits MUST summarize the change and include
+verification evidence; sensitive values MUST never be committed.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes conflicting informal project practice. Amendments require a documented
+proposal, repository-owner approval, and any migration or rollout plan needed for backward
+compatibility. Version identifiers follow semantic versioning: MAJOR for incompatible governance or
+principle redefinition, MINOR for new or materially expanded principles or sections, and PATCH for
+clarifications or non-semantic refinements.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Every change MUST be reviewed for compliance with the active principles and MUST NOT introduce
+unjustified complexity. Ambiguities or conflicting requirements MUST be resolved through documented
+project-owner decisions before implementation proceeds.
+
+**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE): Project owner to confirm the original adoption date | **Last Amended**: 2026-11-24
