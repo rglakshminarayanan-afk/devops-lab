@@ -1,0 +1,16 @@
+name: hello
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  greet:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Say hello
+        run: echo "Hello from $GITHUB_REPOSITORY on $RUNNER_OS"
+      - name: Show what triggered this run
+        run: echo "Triggered by $GITHUB_EVENT_NAME"
